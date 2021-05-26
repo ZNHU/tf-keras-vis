@@ -122,10 +122,10 @@ class ActivationMaximization(ModelVisualization):
                 outputs = listify(outputs)
                 score_values = self._calculate_scores(outputs, scores)
                 # Calculate regularization values
-                regularizations = [(regularizer.name, regularizer(seed_inputs))
-                                   for regularizer in regularizers]
+                regularizer_values = [(regularizer.name, regularizer(seed_inputs))
+                                      for regularizer in regularizers]
                 regularized_score_values = [
-                    (-1. * score_value) + sum([v for _, v in regularizations])
+                    (-1. * score_value) + sum([v for _, v in regularizer_values])
                     for score_value in score_values
                 ]
                 if mixed_precision_model:
@@ -149,7 +149,7 @@ class ActivationMaximization(ModelVisualization):
                          grads,
                          score_values,
                          outputs,
-                         regularizations=regularizations,
+                         regularizer_values=regularizer_values,
                          overall_score=regularized_score_values)
 
         for callback in callbacks:
