@@ -5,11 +5,9 @@ from tensorflow.keras.models import load_model
 
 from tf_keras_vis.activation_maximization import ActivationMaximization
 from tf_keras_vis.utils.input_modifiers import Jitter, Rotate
-from tf_keras_vis.utils.test import (MockCallback, MockListOfScore, MockScore,
-                                     MockTupleOfScore, does_not_raise,
-                                     dummy_sample, mock_conv_model,
-                                     mock_conv_model_with_float32_output,
-                                     mock_multiple_io_model)
+from tf_keras_vis.utils.test import (MockCallback, MockListOfScore, MockScore, MockTupleOfScore,
+                                     does_not_raise, dummy_sample, mock_conv_model,
+                                     mock_conv_model_with_float32_output, mock_multiple_io_model)
 
 if version(tf.version.VERSION) >= version("2.4.0"):
     from tensorflow.keras.mixed_precision import set_global_policy
